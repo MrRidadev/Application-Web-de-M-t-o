@@ -1,0 +1,78 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+body{
+    background-image: url(/Asset/img/sunny-blue-sky-grass.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    background-size: 100%;
+}
+.Météo{
+
+    display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding-top: 70px;
+}
+.Météo h5{
+    color: blueviolet;
+}
+.Card img {
+    width: 40px;
+    height: 40px;
+    
+
+}
+.Card {
+    display: flex;
+    margin-top:20px ;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #99e6eabf;
+    justify-content: space-around;
+}
+.semaine{
+    border-radius: 15px;
+
+    background-color: #99e6eabf;
+    margin-top: 20px;
+    padding: 20px;
+}
+.semaine hr{
+    color: #fff;
+    
+    
+}
+.cards{
+    display: flex;
+    border-radius: 15px;
+    padding: 20px;
+    justify-content: space-around;
+
+
+}
+.cards img{
+    width: 40px;
+    height: 40px;
+}
+.tempte{
+    color: #fff;
+}
+/* tablet */
+@media screen and (max-width:992px) {
+    body{
+        background-size: 300%;
+
+    }
+
+}
+/* PHONE */
+@media screen and (max-width:600px) {
+    body{
+        background-size: 399%;
+
+    }
+
+}
