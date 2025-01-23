@@ -32,6 +32,15 @@ body{
 .Météo h5{
     color: blueviolet;
 }
+.Humidité{
+    display: flex;
+    justify-content:space-evenly;
+}
+.Humidité p {
+    background-color:  #99e6eabf;
+    margin-top: 10px;
+    border-radius: 5px;
+}
 .Card img {
     width: 40px;
     height: 40px;
