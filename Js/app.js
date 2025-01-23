@@ -10,20 +10,36 @@ const Humidité = document.getElementById("Humidité");
 const Vent = document.getElementById("Vent");
 const tempte = document.getElementById("tempte");
 const jours = document.getElementById("jours");
+Récupiration(BASE_URL);
+function Récupiration(url){
+// alert(url);
 
-fetch (BASE_URL)
+fetch (url)
 .then(response => response.json())
 .then(data => {
-    // console.log(data);
+    console.log(data);
+    
     // Récupiration des données
     const Température = document.getElementById("Température");
-    Température.innerHTML=data.main.temp;
+    Température.innerHTML= Math.round(data.main.temp-273.15);
     const description = document.getElementById("description");
-    description.innerHTML=data.weather.description;
+    description.innerHTML=data.weather[0].description;
     const Humidité = document.getElementById("Humidité");
-    Humidité.innerHTML= data.main.humidité;
+    Humidité.innerHTML= data.main.humidity;
     const Vent = document.getElementById("Vent");
-    Vent.innerHTML=data.wind.speed;
+    Vent.innerHTML= data.wind.speed;
+    const cityInput = document.getElementById("city");
+    cityInput.innerHTML = data.name;
+
 })
+}
+document.getElementById("searchButton").addEventListener("click", () => {
+  const city = cityInput.value.trim();
+
+
+  Récupiration("https://api.openweathermap.org/data/2.5/weather?q="+ cityInput.value.trim()+"&appid="+API_key);
+
+})
+
 
 
