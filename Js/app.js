@@ -15,12 +15,12 @@ const jours = document.getElementById("jours");
 Récupiration(BASE_URL);
 semaine(url)
 function Récupiration(url){
-// alert(url);
+
 
 fetch (url)
 .then(response => response.json())
 .then(data => {
-    console.log(data);
+    
     
     // Récupiration des données
     const Température = document.getElementById("Température");
@@ -37,7 +37,7 @@ fetch (url)
 })
 }
 function semaine(url){
-    // alert(url);
+    
     
     fetch (url)
     .then(response => response.json())
