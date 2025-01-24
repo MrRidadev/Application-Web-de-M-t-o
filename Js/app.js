@@ -85,7 +85,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
 // validation inputs
 function validation(){
     let isValid = true;
-    const NomRegex= /^[a-zA-Z]*$/;
+    const NomRegex= /^[a-zA-Z\s]*$/;
     
     const cityInput=document.getElementById("cityInput");
    if(!cityInput.value.trim()){
