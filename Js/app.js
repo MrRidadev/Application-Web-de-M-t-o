@@ -13,6 +13,7 @@ const tempte = document.getElementById("tempte");
 const jours = document.getElementById("jours");
 
 Localisation();
+
 function Récupiration(url){
 
 
@@ -41,7 +42,7 @@ function semaine(url){
     fetch (url)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+       
         
         // Jour1
         const temp1 = document.getElementById("Température1");
@@ -102,14 +103,12 @@ function Localisation() {
  
     if ("geolocation" in navigator) {
        /* geolocation is available */
-       console.log("avilable");
- 
+       
        navigator.geolocation.getCurrentPosition((position) => {
           console.log("get position"+position.coords.latitude +""+position.coords.longitude);
  
           lat=position.coords.latitude;
           lon= position.coords.longitude;
-          console.log("get position"+lat +""+lon);
             // start geting data from api 
           semaine(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`);
           Récupiration(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`);
