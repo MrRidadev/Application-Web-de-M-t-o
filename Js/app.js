@@ -69,16 +69,30 @@ function semaine(url){
         temp5.innerHTML=Math.round(data.list[30].main.temp)+ " °C" ;
         const image5 = document.getElementById("image5");
         image5.src = "https://openweathermap.org/img/wn/"+data.list[30] .weather[0].icon+"@2x.png";
+
+        cityInput.value=" ";
     
     })
     }
 document.getElementById("searchButton").addEventListener("click", () => {
   const city = cityInput.value.trim();
 
-
-  Récupiration("https://api.openweathermap.org/data/2.5/weather?q="+ cityInput.value.trim()+"&appid="+API_key);
+  Récupiration("https://api.openweathermap.org/data/2.5/weather?q="+ cityInput.value.trim()+"&appid="+API_key+"&units=metric&");
+  semaine("https://api.openweathermap.org/data/2.5/forecast?q="+ cityInput.value.trim()+"&appid="+API_key+"&units=metric&");
 
 })
-
-
+// validation inputs
+function validation(){
+    let isValid = true;
+    const NomRegex= /^[a-zA-Z]*$/;
+    
+    const cityInput=document.getElementById("cityInput");
+   if(!cityInput.value.trim()){
+    alert("Veuillez entrer une ville");
+    isValid = false;
+   }else if(!NomRegex.test(cityInput.value.trim())){
+    alert("Le format de nom ville est invalide.");
+    isValid = false;
+   }
+}
 
