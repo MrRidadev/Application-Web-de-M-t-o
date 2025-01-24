@@ -1,7 +1,6 @@
 // Ta clé API OpenWeatherMap (remplace "VOTRE_CLE_API" par ta propre clé)
 const API_key = "5fb22d37ef6867ae1a9b76a33509292c";
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Béni Mellal&units=metric&appid="+API_key;
-const url =  "https://api.openweathermap.org/data/2.5/forecast?q=Béni Mellal&units=metric&appid=5fb22d37ef6867ae1a9b76a33509292c";
+
 
 // Sélectionner les éléments du DOM
 const cityInput = document.getElementById("cityInput");
@@ -12,8 +11,8 @@ const Humidité = document.getElementById("Humidité");
 const Vent = document.getElementById("Vent");
 const tempte = document.getElementById("tempte");
 const jours = document.getElementById("jours");
-Récupiration(BASE_URL);
-semaine(url)
+
+Localisation();
 function Récupiration(url){
 
 
@@ -96,4 +95,30 @@ function validation(){
     isValid = false;
    }
 }
+
+function Localisation() {
+    console.log("start local");
+    
+ 
+    if ("geolocation" in navigator) {
+       /* geolocation is available */
+       console.log("avilable");
+ 
+       navigator.geolocation.getCurrentPosition((position) => {
+          console.log("get position"+position.coords.latitude +""+position.coords.longitude);
+ 
+          lat=position.coords.latitude;
+          lon= position.coords.longitude;
+          console.log("get position"+lat +""+lon);
+            // start geting data from api 
+          semaine(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`);
+          Récupiration(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`);
+
+ 
+        });
+        
+     } 
+ 
+    
+ }
 
