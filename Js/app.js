@@ -28,9 +28,9 @@ fetch (url)
     const description = document.getElementById("description");
     description.innerHTML=data.weather[0].description;
     const Humidité = document.getElementById("Humidité");
-    Humidité.innerHTML=  data.main.humidity+"%" ;
+    Humidité.innerHTML= "Humidité : "+ data.main.humidity+"%" ;
     const Vent = document.getElementById("Vent");
-    Vent.innerHTML=  data.wind.speed +" km";
+    Vent.innerHTML=  "Vent : "+data.wind.speed +" km";
     const cityInput = document.getElementById("city");
     cityInput.innerHTML = data.name ;
 
@@ -69,8 +69,9 @@ function semaine(url){
         temp5.innerHTML=Math.round(data.list[30].main.temp)+ " °C" ;
         const image5 = document.getElementById("image5");
         image5.src = "https://openweathermap.org/img/wn/"+data.list[30] .weather[0].icon+"@2x.png";
-
+        // pour vide inputs
         cityInput.value=" ";
+       
     
     })
     }
